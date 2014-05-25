@@ -1,0 +1,50 @@
+genetics	cell biology	4.5000	10
+biology	C. elegans	4.3000	10
+behavioral ecology	biology	3.7778	9
+invasive species	biology	4.4000	10
+behavioral ecology	assessment	2.0833	12
+sustainability	infectious diseases	2.0000	11
+physiology	microbiology	3.6000	10
+evolution	biology	5.0000	11
+biological sciences	population genetics	4.3333	9
+molecular evolution	biological sciences	4.4545	11
+plant ecology	biology	4.5385	13
+plant biology	biology	4.7000	10
+parasitology	biological sciences	4.5455	11
+electrophysiology	assessment	2.1111	9
+ecology	animal behavior	4.4545	11
+active learning	biogeography	1.7778	9
+biological sciences	biochemistry	4.5000	10
+parasitology	biology	4.3333	9
+genetics	immunology	4.3000	10
+parasitology	biogeography	3.4444	9
+statistics	environmental science	3.6364	11
+immunology	microbiology	4.2000	10
+genetics	invasive species	2.7692	13
+sustainability	plant biology	3.4000	10
+active learning	physiology	1.9000	10
+assessment	plant biology	1.2222	9
+biodiversity	evolutionary biology	4.8000	10
+biology	developmental biology	4.7500	8
+immunology	biochemistry	4.5556	9
+statistics	genomics	4.4444	9
+parasitology	introductory biology	3.6000	10
+infectious diseases	evolutionary biology	4.5000	10
+introductory biology	statistics	3.2222	9
+biology	botany	4.0909	11
+molecular biology	evolution	4.0000	12
+statistics	evolution	3.3333	9
+plant biology	biological sciences	4.7273	11
+plant biology	human physiology	3.0909	11
+botany	statistics	3.1000	10
+conservation biology	biogeography	4.2727	11
+evolution	human physiology	4.0000	8
+animal behavior	sustainability	2.0000	11
+molecular evolution	infectious diseases	4.5000	12
+statistics	bioinformatics	4.7273	11
+neuroscience	biology	4.5000	10
+active learning	sustainability	1.6667	12
+evolution	developmental biology	4.2727	11
+human physiology	genomics	3.8000	10
+sustainability	evolution	2.4545	11
+genetics	biochemistry	4.1111	9

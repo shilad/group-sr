@@ -1,0 +1,150 @@
+aging	cognitive development	4.0000	25
+behavioral ecology	biology	3.9231	26
+psychophysiology	psychology	4.1724	29
+Irish history	gardens	1.9062	32
+invasive species	biology	4.3529	34
+psychology	history of psychology	4.3043	23
+physiology	microbiology	3.6429	28
+evolution	biology	4.7879	33
+biological sciences	population genetics	4.2903	31
+plant ecology	biology	4.5312	32
+South Asia	popular religion	2.7333	30
+parasitology	biology	4.4706	34
+clinical psychology	consciousness	3.4231	26
+parasitology	biogeography	3.4643	28
+South Asia	European history	2.9032	31
+cognitive psychology	psychophysiology	3.6296	27
+positive psychology	cognition	3.5417	24
+writing	popular religion	2.5833	36
+social change	community psychology	3.8148	27
+positive psychology	learning	3.0870	23
+biodiversity	evolutionary biology	4.8621	29
+animal behavior	sustainability	2.7273	33
+music	community psychology	2.0000	28
+cognitive psychology	music	3.2500	32
+social psychology	personality	4.1333	30
+research methods	linguistics	3.1786	28
+molecular biology	evolution	4.1724	29
+writing	historical memory	3.5806	31
+cognition	language	4.5000	24
+European history	Irish history	4.3333	27
+plant biology	human physiology	3.0000	25
+aging	metacognition	3.3478	23
+slavery	environmental history	3.0357	28
+evolution	human physiology	4.3478	23
+learning	experimental psychology	4.1071	28
+sexuality	African history	2.6667	27
+world history	sustainability	2.7586	29
+cognitive neuroscience	learning	4.5769	26
+genetics	cell biology	4.6207	29
+American studies	writing	3.2121	33
+active learning	physiology	2.3846	26
+writing	African American history	3.0312	32
+parasitology	biological sciences	4.5000	32
+environmental history	medieval history	2.9118	34
+psychology	community psychology	4.3600	25
+modernism	medieval history	2.7308	26
+cultural history	modernism	3.7037	27
+biological sciences	biochemistry	4.5161	31
+civil rights movement	European history	2.7097	31
+immunology	microbiology	4.5357	28
+sustainability	plant biology	3.8065	31
+aging	cognitive neuroscience	3.9032	31
+health psychology	child development	3.5862	29
+biology	developmental biology	4.7083	24
+race	intellectual history	3.2571	35
+memory	psychophysiology	3.5217	23
+introductory biology	statistics	3.1333	30
+modern European history	women	3.6774	31
+psychopathology	neuroscience	4.3077	26
+world history	urban history	4.0690	29
+collective memory	women	3.0270	37
+plant biology	biological sciences	4.7857	28
+women	world history	3.8182	33
+consciousness	research methods	2.3103	29
+bilingualism	stereotyping	2.6897	29
+collective memory	sexuality	2.2286	35
+Latin America	writing	2.3000	30
+molecular evolution	infectious diseases	4.0882	34
+cognitive psychology	neuroscience	4.5333	30
+psychology	social change	3.2000	25
+research methods	cognitive neuroscience	3.6364	22
+neuroscience	biology	4.2308	26
+active learning	sustainability	1.7647	34
+sustainability	evolution	3.1481	27
+sustainability	digital humanities	2.2581	31
+sustainability	infectious diseases	2.7500	32
+international relations	modern European history	4.3125	32
+consciousness	positive psychology	3.2727	22
+sustainability	intellectual history	2.3750	32
+electrophysiology	assessment	1.5833	24
+ecology	animal behavior	4.1923	26
+infectious diseases	evolutionary biology	4.3929	28
+feminism	gender	4.4333	30
+genetics	immunology	4.2500	28
+genetics	invasive species	3.0667	30
+assessment	plant biology	1.5333	30
+British history	race	3.1667	30
+psychology	cognitive development	4.3704	27
+African history	civil rights movement	3.4857	35
+statistics	environmental science	3.6176	34
+abnormal psychology	child development	3.4762	21
+health psychology	emotion regulation	3.9286	28
+immunology	biochemistry	4.4138	29
+experimental psychology	gerontology	3.0370	27
+biology	botany	4.4474	38
+cultural history	race	4.3333	33
+psychophysiology	linguistics	2.7200	25
+statistics	evolution	2.9259	27
+gardens	writing	1.8065	31
+sustainability	gardens	3.9375	32
+18th century	cultural history	3.8387	31
+botany	statistics	2.5862	29
+gardens	identity	1.8621	29
+cultural history	Irish history	3.7188	32
+sustainability	writing	2.0000	31
+environmental history	African American history	3.4000	35
+memory	aging	4.4138	29
+biology	C. elegans	4.2000	20
+cognition	gender	2.2500	28
+colonialism	U.S. History	4.4250	40
+identity	women	3.9394	33
+conservation biology	biogeography	4.3929	28
+gender	personality	3.1613	31
+molecular evolution	biological sciences	4.4194	31
+plant biology	biology	4.7742	31
+cognition	acculturation	3.0000	23
+history	medieval history	4.7241	29
+infancy	consciousness	3.1379	29
+gerontology	personality	2.9286	28
+history	popular religion	3.2051	39
+emotion	developmental psychology	4.0645	31
+slavery	sustainability	1.9118	34
+18th century	French history	4.0345	29
+American studies	women	3.6250	32
+modernism	church history	2.7500	28
+parasitology	introductory biology	3.5667	30
+cognitive neuroscience	child development	4.2222	27
+emotion	linguistics	2.6071	28
+statistics	genomics	4.1071	28
+bilingualism	animal behavior	1.5556	27
+South Asia	race	2.8438	32
+consciousness	personality	3.5333	30
+social psychology	cognitive psychology	4.0741	27
+psychophysiology	abnormal psychology	3.7000	30
+psychophysiology	aging	3.9286	28
+child development	social psychology	4.0303	33
+active learning	biogeography	1.8846	26
+clinical psychology	history of psychology	3.7692	26
+gardens	South Asia	2.2333	30
+developmental psychology	memory	3.6552	29
+writing	women	3.1852	27
+behavioral ecology	assessment	2.1379	29
+statistics	bioinformatics	4.5000	30
+identity	sustainability	2.3056	36
+sexuality	historical memory	2.4231	26
+evolution	developmental biology	4.4000	30
+cognitive psychology	learning	4.6522	23
+human physiology	genomics	3.8276	29
+identity	slavery	3.5517	29
+genetics	biochemistry	4.3571	28

@@ -1,0 +1,200 @@
+aging	cognitive development	3.8000	5
+behavioral ecology	biology	3.7778	9
+Irish history	gardens	1.5000	6
+animal	tiger	4.6667	3
+lawyer	law	5.0000	3
+invasive species	biology	4.4000	10
+psychology	history of psychology	4.5000	4
+physiology	microbiology	3.6000	10
+evolution	biology	5.0000	11
+biological sciences	population genetics	4.3333	9
+Arafat	peace	2.8333	6
+gardens	identity	1.2000	5
+South Asia	popular religion	2.2000	5
+gardens	writing	1.3333	6
+parasitology	biology	4.3333	9
+food	cup	2.8000	5
+parasitology	biogeography	3.4444	9
+South Asia	European history	2.4000	5
+cognitive psychology	psychophysiology	3.4000	5
+positive psychology	cognition	3.0000	1
+writing	popular religion	2.1250	8
+positive psychology	learning	2.0000	3
+biodiversity	evolutionary biology	4.8000	10
+immunology	biochemistry	4.5556	9
+cognitive psychology	music	2.5000	4
+social psychology	personality	3.5000	4
+research methods	linguistics	2.0000	3
+molecular biology	evolution	4.0000	12
+writing	historical memory	3.0000	8
+clinical psychology	consciousness	2.4000	5
+European history	Irish history	3.6667	6
+plant biology	human physiology	3.0909	11
+telephone	communication	4.5000	4
+cup	article	1.2500	4
+currency	money	5.0000	2
+aging	metacognition	1.5000	2
+slavery	environmental history	3.1429	7
+evolution	human physiology	4.0000	8
+learning	experimental psychology	3.1667	6
+sexuality	African history	2.1667	6
+world history	sustainability	2.5000	6
+investigation	effort	2.5000	2
+reason	hypertension	1.2857	7
+cognitive neuroscience	learning	4.5000	2
+emotion	developmental psychology	2.0000	2
+FBI	investigation	4.0000	7
+research methods	cognitive neuroscience	3.5000	2
+genetics	cell biology	4.5000	10
+maker	equipment	1.8333	6
+clinic	psychology	3.0000	1
+problem	challenge	4.8333	6
+statistics	genomics	4.4444	9
+coast	shore	5.0000	2
+car	train	3.8333	6
+writing	African American history	3.5000	8
+parasitology	biological sciences	4.5455	11
+doctor	personnel	1.0000	1
+environmental history	medieval history	2.5000	6
+psychology	community psychology	4.4000	5
+plant ecology	biology	4.5385	13
+cultural history	modernism	3.2500	4
+biological sciences	biochemistry	4.5000	10
+civil rights movement	European history	2.5000	8
+CD	stock	4.3333	3
+Arafat	Jackson	2.0000	4
+immunology	microbiology	4.2000	10
+sustainability	plant biology	3.4000	10
+architecture	observation	2.0000	5
+aging	cognitive neuroscience	3.5714	7
+health psychology	child development	3.0000	3
+delay	racism	1.0000	3
+biology	developmental biology	4.7500	8
+music	project	1.7500	4
+race	intellectual history	3.1250	8
+statistics	environmental science	3.6364	11
+introductory biology	statistics	3.2222	9
+dollar	yen	4.7143	7
+modern European history	women	3.4286	7
+psychopathology	neuroscience	4.0000	3
+world history	urban history	3.2500	4
+collective memory	women	2.7143	7
+object	cup	3.0000	2
+plant biology	biological sciences	4.7273	11
+consciousness	research methods	2.1667	6
+bilingualism	stereotyping	2.5000	4
+minority	peace	2.3333	3
+life	stock	1.3333	6
+environmental history	African American history	3.0000	8
+culture	ministry	1.0000	2
+cognition	gender	2.0000	6
+molecular evolution	infectious diseases	4.5000	12
+cognitive psychology	neuroscience	4.5000	2
+psychology	social change	3.0000	2
+record	number	3.1667	6
+social change	community psychology	3.7500	4
+neuroscience	biology	4.5000	10
+active learning	sustainability	1.6667	12
+sustainability	evolution	2.4545	11
+women	world history	3.6667	9
+Latin America	writing	1.4000	5
+artifact	cup	1.3333	3
+history	medieval history	4.5000	4
+sustainability	infectious diseases	2.0000	11
+international relations	modern European history	3.5000	6
+plane	car	3.6667	6
+sustainability	intellectual history	2.2500	8
+modernism	church history	3.0000	3
+electrophysiology	assessment	2.1111	9
+ecology	animal behavior	4.4545	11
+infectious diseases	evolutionary biology	4.5000	10
+feminism	gender	4.0000	5
+genetics	immunology	4.3000	10
+genetics	invasive species	2.7692	13
+assessment	plant biology	1.2222	9
+British history	race	3.0000	7
+psychology	cognitive development	4.0000	3
+African history	civil rights movement	3.4286	7
+abnormal psychology	child development	2.5000	4
+earning	investor	4.0000	2
+money	property	3.5000	2
+health psychology	emotion regulation	3.3750	8
+experimental psychology	gerontology	3.1667	6
+biology	botany	4.0909	11
+cultural history	race	4.3333	6
+game	round	1.7500	4
+psychophysiology	linguistics	2.6667	3
+statistics	evolution	3.3333	9
+psychophysiology	psychology	4.6667	3
+month	five	1.0000	3
+psychophysiology	aging	3.0000	2
+sustainability	gardens	3.8889	9
+18th century	cultural history	3.6667	6
+botany	statistics	3.1000	10
+gender	equality	3.5000	4
+death	row	2.0000	4
+consciousness	positive psychology	2.0000	2
+calculation	computation	4.5000	6
+bird	crane	4.8000	5
+star	planet	5.0000	1
+size	prominence	2.7500	4
+drink	cup	4.7500	4
+sustainability	writing	1.3333	6
+collective memory	sexuality	1.7500	8
+conservation biology	biogeography	4.2727	11
+theater	museum	2.6667	6
+memory	aging	4.0000	4
+biology	C. elegans	4.3000	10
+writing	women	2.8000	5
+colonialism	U.S. History	4.5000	6
+cultural history	Irish history	3.4000	5
+identity	women	3.3750	8
+recovery	treatment	4.0000	7
+psychology	depression	4.0000	5
+gender	personality	2.3333	6
+molecular evolution	biological sciences	4.4545	11
+plant biology	biology	4.7000	10
+cognition	acculturation	2.0000	4
+active learning	physiology	1.9000	10
+active learning	biogeography	1.7778	9
+gerontology	personality	2.0000	3
+energy	consumer	3.3333	3
+history	popular religion	3.3750	8
+cognition	language	3.0000	3
+slavery	sustainability	1.4286	7
+18th century	French history	3.7143	7
+American studies	women	3.2857	7
+music	community psychology	1.5000	4
+parasitology	introductory biology	3.6000	10
+cognitive neuroscience	child development	4.0000	2
+emotion	linguistics	1.6667	3
+physics	proton	4.5000	2
+American studies	writing	3.1111	9
+hardware	network	3.7500	4
+bilingualism	animal behavior	1.0000	1
+South Asia	race	2.8571	7
+consciousness	personality	3.3333	3
+social psychology	cognitive psychology	3.4000	5
+psychophysiology	abnormal psychology	3.0000	6
+modernism	medieval history	3.0000	5
+child development	social psychology	3.0000	5
+infancy	consciousness	1.5000	4
+clinical psychology	history of psychology	2.5000	2
+gardens	South Asia	1.8000	5
+developmental psychology	memory	2.3333	3
+concert	virtuoso	4.5000	4
+hospital	infrastructure	2.7500	4
+love	sex	3.7500	4
+animal behavior	sustainability	2.0000	11
+behavioral ecology	assessment	2.0833	12
+statistics	bioinformatics	4.7273	11
+identity	sustainability	1.6667	9
+image	surface	2.6250	8
+sexuality	historical memory	1.6667	6
+evolution	developmental biology	4.2727	11
+cognitive psychology	learning	4.6667	3
+sustainability	digital humanities	1.4286	7
+human physiology	genomics	3.8000	10
+memory	psychophysiology	3.0000	3
+identity	slavery	3.0000	5
+genetics	biochemistry	4.1111	9
