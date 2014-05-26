@@ -16,7 +16,6 @@ import org.wikibrain.utils.WpIOUtils;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
@@ -42,7 +41,7 @@ public class Importer {
     }
 
     public void prepareSubsets() throws ConfigurationException, DaoException, IOException {
-        String template = WpIOUtils.resourceToString("/template.conf");
+        String template = WpIOUtils.resourceToString("/src/main/resources/template.conf");
         Path baseDir = Paths.get(fullEnv.getConfiguration().get().getString("baseDir"));
 
         String script = "";
