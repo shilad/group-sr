@@ -53,13 +53,13 @@ public class BasicEvaluation {
     }
 
     public void testAll(String metricName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
-        for (String name : DATASETS) {
-            testOne(name, metricName);
+        for (String datasetName : DATASETS) {
+            testOne(metricName, datasetName);
         }
     }
 
-    public void testOne(String metricName, String name) throws ConfigurationException, DaoException, IOException, WikiBrainException {
-        File file = new File("dat/" + name);
+    public void testOne(String metricName, String datasetName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
+        File file = new File("dat/" + datasetName);
         DatasetDao dao = env.getConfigurator().get(DatasetDao.class);
         Dataset ds = dao.read(language, file);
         File dir = new File("results");
