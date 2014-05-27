@@ -23,6 +23,7 @@ The second part of the filename (history / biology / psych / mturk / scholar / s
 	all-psychology.txt n=183 (sum=885 min=1, mean=4.73, median=5.00, max=10)
 	all-mturk.txt n=200 (sum=2835 min=6, mean=13.90, median=14.00, max=39)
 	all-scholar.txt n=200 (sum=2288 min=3, mean=11.22, median=11.00, max=30)
+    all-scholar-in.txt n=200 (sum=1817 min=4, mean=9.09, median=9.00, max=17)
 	all-scholar-all.txt n=200 (sum=5552 min=12, mean=27.22, median=28.00, max=71)
 	general-history.txt n=49 (sum=175 min=1, mean=3.57, median=3.00, max=8)
 	specific-history.txt n=50 (sum=434 min=5, mean=8.68, median=8.00, max=13)

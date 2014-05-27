@@ -30,15 +30,15 @@ public class CrossTrainer {
         this.language = env.getLanguages().getDefaultLanguage();
     }
 
-    public void evaluate() throws ConfigurationException, DaoException, IOException, WikiBrainException {
+    public void evaluate(String knowledge) throws ConfigurationException, DaoException, IOException, WikiBrainException {
         File dir = new File("results");
         dir.mkdirs();
         SimilarityEvaluator evaluator = new SimilarityEvaluator(dir);
 
         DatasetDao dao = env.getConfigurator().get(DatasetDao.class);
-        Dataset turker = dao.read(language, new File("dat/specific-mturk.txt"));
-        Dataset scholar = dao.read(language, new File("dat/specific-scholar.txt"));
-        Dataset scholarIn = dao.read(language, new File("dat/specific-scholar-in.txt"));
+        Dataset turker = dao.read(language, new File("dat/" + knowledge + "-mturk.txt"));
+        Dataset scholar = dao.read(language, new File("dat/" + knowledge + "-scholar.txt"));
+        Dataset scholarIn = dao.read(language, new File("dat/" + knowledge + "-scholar-in.txt"));
         List<Dataset> datasets = Arrays.asList(turker, scholar, scholarIn);
 
         for (Dataset train : datasets) {
@@ -54,7 +54,8 @@ public class CrossTrainer {
     public static void main(String args[]) throws Exception {
         Env env = EnvBuilder.envFromArgs(args);
         CrossTrainer xt = new CrossTrainer(env);
-        xt.evaluate();
+        xt.evaluate("all");
+        xt.evaluate("specific");
         env.close();
     }
 }
