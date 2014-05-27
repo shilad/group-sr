@@ -1,6 +1,8 @@
 package org.shilad.groupsr;
 
+import org.apache.commons.cli.*;
 import org.wikibrain.conf.ConfigurationException;
+import org.wikibrain.conf.DefaultOptionBuilder;
 import org.wikibrain.core.WikiBrainException;
 import org.wikibrain.core.cmd.Env;
 import org.wikibrain.core.cmd.EnvBuilder;
@@ -50,13 +52,13 @@ public class BasicEvaluation {
         this.language = env.getLanguages().getDefaultLanguage();
     }
 
-    public void testAll() throws ConfigurationException, DaoException, IOException, WikiBrainException {
+    public void testAll(String metricName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
         for (String name : DATASETS) {
-            testOne(name);
+            testOne(name, metricName);
         }
     }
 
-    public void testOne(String name) throws ConfigurationException, DaoException, IOException, WikiBrainException {
+    public void testOne(String metricName, String name) throws ConfigurationException, DaoException, IOException, WikiBrainException {
         File file = new File("dat/" + name);
         DatasetDao dao = env.getConfigurator().get(DatasetDao.class);
         Dataset ds = dao.read(language, file);
@@ -64,12 +66,35 @@ public class BasicEvaluation {
         dir.mkdirs();
         SimilarityEvaluator evaluator = new SimilarityEvaluator(dir);
         evaluator.addCrossfolds(ds, 7);
-        evaluator.evaluate(new ConfigMonolingualSRFactory(language, env.getConfigurator(), "ensemble"));
+        evaluator.evaluate(new ConfigMonolingualSRFactory(language, env.getConfigurator(), metricName));
     }
 
     public static void main(String args[]) throws ConfigurationException, DaoException, IOException, WikiBrainException {
+        Options options = new Options();
+        options.addOption(
+            new DefaultOptionBuilder()
+                    .hasArg()
+                    .withLongOpt("metric")
+                    .withDescription("set a local metric")
+                    .create("m"));
+
+        EnvBuilder.addStandardOptions(options);
+
+        CommandLineParser parser = new PosixParser();
+        CommandLine cmd;
+        try {
+            cmd = parser.parse(options, args);
+        } catch (ParseException e) {
+            System.err.println("Invalid option usage: " + e.getMessage());
+            new HelpFormatter().printHelp("BasicEvaluation", options);
+            System.exit(1);
+            return; // to appease the compiler
+        }
+
+        String metricName = cmd.getOptionValue("m", "ensemble");
+
         Env env = EnvBuilder.envFromArgs(args);
         BasicEvaluation basicEvaluation = new BasicEvaluation(env);
-        basicEvaluation.testAll();
+        basicEvaluation.testAll(metricName);
     }
 }
