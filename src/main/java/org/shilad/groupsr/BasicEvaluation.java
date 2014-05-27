@@ -1,6 +1,5 @@
 package org.shilad.groupsr;
 
-import org.apache.commons.io.FileUtils;
 import org.wikibrain.conf.ConfigurationException;
 import org.wikibrain.core.WikiBrainException;
 import org.wikibrain.core.cmd.Env;
@@ -18,7 +17,7 @@ import java.io.IOException;
 /**
  * @author Shilad Sen
  */
-public class Tester {
+public class BasicEvaluation {
     public static final String [] DATASETS = {
         "all-all-scholar.txt",
         "all-biology.txt",
@@ -46,7 +45,7 @@ public class Tester {
     private final Env env;
     private final Language language;
 
-    public Tester(Env env) {
+    public BasicEvaluation(Env env) {
         this.env = env;
         this.language = env.getLanguages().getDefaultLanguage();
     }
@@ -70,7 +69,7 @@ public class Tester {
 
     public static void main(String args[]) throws ConfigurationException, DaoException, IOException, WikiBrainException {
         Env env = EnvBuilder.envFromArgs(args);
-        Tester tester = new Tester(env);
-        tester.testAll();
+        BasicEvaluation basicEvaluation = new BasicEvaluation(env);
+        basicEvaluation.testAll();
     }
 }
