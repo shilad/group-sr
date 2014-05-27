@@ -93,7 +93,7 @@ public class BasicEvaluation {
 
         String metricName = cmd.getOptionValue("m", "ensemble");
 
-        Env env = EnvBuilder.envFromArgs(args);
+        Env env = new EnvBuilder(cmd).build();
         BasicEvaluation basicEvaluation = new BasicEvaluation(env);
         basicEvaluation.testAll(metricName);
     }
