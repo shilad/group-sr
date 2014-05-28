@@ -28,6 +28,7 @@ public class BasicEvaluation {
         "all-psychology.txt",
         "all-scholar.txt",
         "all-scholar-all.txt",
+        "all-scholar-in.txt",
         "general-biology.txt",
         "general-history.txt",
         "general-mturk.txt",
@@ -65,7 +66,7 @@ public class BasicEvaluation {
         File dir = new File("results");
         dir.mkdirs();
         SimilarityEvaluator evaluator = new SimilarityEvaluator(dir);
-        evaluator.addCrossfolds(ds, 7);
+        evaluator.addCrossfolds(ds, 4);
         evaluator.evaluate(new ConfigMonolingualSRFactory(language, env.getConfigurator(), metricName));
     }
 
