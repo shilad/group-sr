@@ -1,5 +1,11 @@
 package org.shilad.groupsr;
 
+import gnu.trove.list.TDoubleList;
+import gnu.trove.list.array.TDoubleArrayList;
+import gnu.trove.map.TDoubleDoubleMap;
+import gnu.trove.map.hash.TDoubleDoubleHashMap;
+import org.apache.commons.math3.stat.ranking.NaturalRanking;
+import org.apache.commons.math3.stat.ranking.TiesStrategy;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.wikibrain.sr.evaluation.KnownSimGuess;
 import org.wikibrain.sr.evaluation.SimilarityEvaluationLog;
@@ -24,26 +30,57 @@ public class AlgorithmicDifferenceProbe {
     }
 
     private void analyzePairs(Map<String, Map<String, KnownSimGuess>> guessesByPair) {
+
+        // accumulate SR scores for each algorithm
+        Map<String, TDoubleList> algScores = new HashMap<String, TDoubleList>();
+        algScores.put("actual", new TDoubleArrayList());
+        for (Map<String, KnownSimGuess> pairGuesses : guessesByPair.values()) {
+            boolean firstAlg = true;
+            for (String alg : pairGuesses.keySet()) {
+                if (!algScores.containsKey(alg)) {
+                    algScores.put(alg, new TDoubleArrayList());
+                }
+                algScores.get(alg).add(pairGuesses.get(alg).getGuess());
+                if (firstAlg) {
+                    algScores.get("actual").add(pairGuesses.get(alg).getActual());
+                    firstAlg = false;
+                }
+            }
+        }
+
+
+        // create mapping from SR scores to ranks
+        NaturalRanking nr = new NaturalRanking(TiesStrategy.MAXIMUM);
+        Map<String, TDoubleDoubleMap> scoreToRank = new HashMap<String, TDoubleDoubleMap>();
+        for (String alg : algScores.keySet()) {
+            double [] ranks = nr.rank(algScores.get(alg).toArray());
+            scoreToRank.put(alg, new TDoubleDoubleHashMap());
+            for (int i = 0; i < ranks.length; i++) {
+                scoreToRank.get(alg).put(algScores.get(alg).get(i), ranks[i]);
+            }
+        }
+
         Map<String, Double> pairScores = new HashMap<String, Double>();
         for (String pairKey : guessesByPair.keySet()) {
-            double minError = Double.MAX_VALUE;
-            double maxError = -1.0;
+            double minRank = Double.MAX_VALUE;
+            double maxRank = -1.0;
 
-            for (KnownSimGuess g : guessesByPair.get(pairKey).values()) {
-                double e = Math.abs(g.getError());
-                minError = Math.min(minError, e);
-                maxError = Math.max(maxError, e);
+            for (String alg : guessesByPair.get(pairKey).keySet()) {
+                KnownSimGuess g = guessesByPair.get(pairKey).get(alg);
+                double r = scoreToRank.get(alg).get(g.getGuess());
+                minRank = Math.min(minRank, r);
+                maxRank = Math.max(maxRank, r);
             }
-            pairScores.put(pairKey, maxError - minError);
+            pairScores.put(pairKey, maxRank - minRank);
         }
 
         List<String> ordered = WpCollectionUtils.sortMapKeys(pairScores, true);
         for (int i = 0; i < Math.min(ordered.size(), NUM_RESULTS); i++) {
-            showPair(i, guessesByPair.get(ordered.get(i)));
+            showPair(i, guessesByPair.get(ordered.get(i)), scoreToRank);
         }
     }
 
-    private void showPair(int i, Map<String, KnownSimGuess> guesses) {
+    private void showPair(int i, Map<String, KnownSimGuess> guesses, Map<String, TDoubleDoubleMap> scoreToRank) {
         if (guesses.isEmpty()) return;
         KnownSim ks = guesses.values().iterator().next().getKnown();
         System.out.println(String.format("%d. %s vs. %s:", (i+1), ks.phrase1, ks.phrase2));
@@ -52,8 +89,11 @@ public class AlgorithmicDifferenceProbe {
         for (String alg : algNames) {
             KnownSimGuess g = guesses.get(alg);
             System.out.println(String.format(
-                    "\t%s: err=%.3f, pred=%.3f, actual=%.3f",
-                    alg, g.getError(), g.getGuess(), g.getActual()));
+                    "\t%s: pred_rank=%.2f actual_rank=%.2f guess=%.3f actual=%.3f",
+                    alg,
+                    scoreToRank.get(alg).get(g.getGuess()),
+                    scoreToRank.get("actual").get(g.getActual()),
+                    g.getGuess(), g.getActual()));
         }
     }
 
@@ -63,6 +103,9 @@ public class AlgorithmicDifferenceProbe {
         Map<String, Map<String, KnownSimGuess>> guessesByPair = new HashMap<String, Map<String, KnownSimGuess>>();
         for (String alg : guesses.keySet()) {
             for (KnownSimGuess g : guesses.get(alg)) {
+                if (!g.hasGuess()) {
+                    continue;
+                }
                 if (!guessesByPair.containsKey(g.getUniqueKey())) {
                     guessesByPair.put(g.getUniqueKey(), new HashMap<String, KnownSimGuess>());
                 }
@@ -115,11 +158,9 @@ public class AlgorithmicDifferenceProbe {
                 n++;
             }
         }
-
         if (n < 5) {
             return guesses;
         }
-
         List<KnownSimGuess> fitted = new ArrayList<KnownSimGuess>();
         for (KnownSimGuess g : guesses) {
             if (g.hasGuess()) {
