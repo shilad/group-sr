@@ -1,5 +1,6 @@
 package org.shilad.groupsr;
 
+import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.wikibrain.sr.evaluation.KnownSimGuess;
 import org.wikibrain.sr.evaluation.SimilarityEvaluationLog;
 import org.wikibrain.sr.utils.KnownSim;
@@ -99,9 +100,38 @@ public class AlgorithmicDifferenceProbe {
                 System.out.println("\t" + entry.getKey() + ": " + entry.getValue());
             }
             System.out.println("");
-            guesses.put(dir.getName(), log.getGuesses());
+            guesses.put(dir.getName(), fitGuesses(log.getGuesses()));
         }
+
         return guesses;
+    }
+
+    private List<KnownSimGuess> fitGuesses(List<KnownSimGuess> guesses) {
+        SimpleRegression reg = new SimpleRegression();
+        int n = 0;
+        for (KnownSimGuess g : guesses) {
+            if (g.hasGuess()) {
+                reg.addData(g.getGuess(), g.getActual());
+                n++;
+            }
+        }
+
+        if (n < 5) {
+            return guesses;
+        }
+
+        List<KnownSimGuess> fitted = new ArrayList<KnownSimGuess>();
+        for (KnownSimGuess g : guesses) {
+            if (g.hasGuess()) {
+                fitted.add(new KnownSimGuess(
+                        g.getKnown(),
+                        reg.getIntercept() + reg.getSlope() * g.getGuess()
+                ));
+            } else {
+                fitted.add(g);
+            }
+        }
+        return fitted;
     }
 
     public static void main(String args[]) throws IOException, ParseException {
