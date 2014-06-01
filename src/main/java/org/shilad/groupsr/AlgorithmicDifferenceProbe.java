@@ -85,11 +85,20 @@ public class AlgorithmicDifferenceProbe {
         return guessesByPair;
     }
 
+    private static final List<String> SUMMARY_FIELDS_TO_SKIP = Arrays.asList("disambigConfig", "metricConfig", "resolvePhrases", "dataset");
     public Map<String, List<KnownSimGuess>> getGuesses(List<File> dirs) throws IOException, ParseException {
         Map<String, List<KnownSimGuess>> guesses = new HashMap<String, List<KnownSimGuess>>();
         for (File dir : dirs) {
             File logFile = new File(dir, "overall.log");
             SimilarityEvaluationLog log = SimilarityEvaluationLog.read(logFile);
+            System.out.println("summary for " + dir + ":");
+            for (Map.Entry<String, String> entry : log.getSummaryAsMap().entrySet()) {
+                if (SUMMARY_FIELDS_TO_SKIP.contains(entry.getKey())) {
+                    continue;
+                }
+                System.out.println("\t" + entry.getKey() + ": " + entry.getValue());
+            }
+            System.out.println("");
             guesses.put(dir.getName(), log.getGuesses());
         }
         return guesses;
