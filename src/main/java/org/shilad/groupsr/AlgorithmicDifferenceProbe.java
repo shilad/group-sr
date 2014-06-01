@@ -56,7 +56,7 @@ public class AlgorithmicDifferenceProbe {
             double [] ranks = nr.rank(algScores.get(alg).toArray());
             scoreToRank.put(alg, new TDoubleDoubleHashMap());
             for (int i = 0; i < ranks.length; i++) {
-                scoreToRank.get(alg).put(algScores.get(alg).get(i), ranks[i]);
+                scoreToRank.get(alg).put(algScores.get(alg).get(i), 1 + ranks.length - ranks[i]);
             }
         }
 
