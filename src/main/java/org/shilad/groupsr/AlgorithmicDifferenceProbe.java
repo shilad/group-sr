@@ -94,6 +94,17 @@ public class AlgorithmicDifferenceProbe {
             }
         }
 
+        // Reset ranks
+        for (String alg : guesses.keySet()) {
+            Iterator<KnownSimGuess> iter = guesses.get(alg).iterator();
+            while (iter.hasNext()) {
+                if (!guessesByPair.containsKey(iter.next().getUniqueKey())) {
+                    iter.remove();
+                }
+            }
+            SimilarityEvaluationLog.setRanks(guesses.get(alg));
+        }
+
         System.out.println("Removed " + removed + " concept pairs that don't appear in every directory. Retained " + guessesByPair.size() + ".");
         return guessesByPair;
     }
