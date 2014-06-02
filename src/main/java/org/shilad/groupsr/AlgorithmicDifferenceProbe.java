@@ -58,8 +58,9 @@ public class AlgorithmicDifferenceProbe {
         for (String alg : algNames) {
             KnownSimGuess g = guesses.get(alg);
             System.out.println(String.format(
-                    "\t%s: pred_rank=%.2f actual_rank=%.2f guess=%.3f actual=%.3f",
+                    "\t%s: rank_error=%.2f pred_rank=%.2f actual_rank=%.2f guess=%.3f actual=%.3f",
                     alg,
+                    g.getRankError(),
                     g.getActualRank(),
                     g.getPredictedRank(),
                     g.getGuess(), g.getActual()));
