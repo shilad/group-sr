@@ -2,12 +2,10 @@ package org.shilad.groupsr;
 
 import gnu.trove.list.TDoubleList;
 import gnu.trove.list.array.TDoubleArrayList;
-import gnu.trove.map.TDoubleDoubleMap;
-import gnu.trove.map.hash.TDoubleDoubleHashMap;
+import gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.hash.TObjectIntHashMap;
+import org.apache.commons.math3.stat.correlation.SpearmansCorrelation;
 import org.apache.commons.math3.stat.inference.WilcoxonSignedRankTest;
-import org.apache.commons.math3.stat.ranking.NaturalRanking;
-import org.apache.commons.math3.stat.ranking.TiesStrategy;
-import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.wikibrain.sr.evaluation.KnownSimGuess;
 import org.wikibrain.sr.evaluation.SimilarityEvaluationLog;
 import org.wikibrain.sr.utils.KnownSim;
@@ -27,8 +25,53 @@ public class AlgorithmicDifferenceProbe {
     public void compare(List<File> dirs) throws IOException, ParseException {
         Map<String, List<KnownSimGuess>> guesses = getGuesses(dirs);
         Map<String, Map<String, KnownSimGuess>> guessesByPair = groupGuessesByPair(guesses);
+        pruneGuesses(guesses);
+        showCorrelations(guesses);
         findDifferences(guessesByPair);
         analyzePairs(guessesByPair);
+    }
+
+    private void pruneGuesses(Map<String, List<KnownSimGuess>> guesses) {
+        TObjectIntMap counts = new TObjectIntHashMap();
+        for (List<KnownSimGuess> l : guesses.values()) {
+            for (KnownSimGuess g : l) {
+                if (g.hasGuess()) {
+                    counts.adjustOrPutValue(g.getUniqueKey(), 1, 1);
+                }
+            }
+        }
+        System.out.println("Found " + counts.size() + " concept pairs that appear in at least one algorithm");
+        int n = -1;
+        for (List<KnownSimGuess> l : guesses.values()) {
+            Iterator<KnownSimGuess> iter = l.iterator();
+            while (iter.hasNext()) {
+                KnownSimGuess g = iter.next();
+                if (counts.get(g.getUniqueKey()) != guesses.size()) {
+                    iter.remove();
+                }
+            }
+            SimilarityEvaluationLog.setRanks(l);
+            if (n < 0) {
+                n = l.size();
+            } else if (n != l.size()) {
+                throw new IllegalStateException();
+            }
+        }
+        System.out.println("Pruned to " + counts.size() + " concept pairs that appear in every algorithm");
+    }
+
+    private void showCorrelations(Map<String, List<KnownSimGuess>> guesses) {
+        SpearmansCorrelation spearmans = new SpearmansCorrelation();
+        for (String alg : guesses.keySet()) {
+            TDoubleList actual = new TDoubleArrayList();
+            TDoubleList predicted = new TDoubleArrayList();
+            for (KnownSimGuess g : guesses.get(alg)) {
+                actual.add(g.getActual());
+                predicted.add(g.getGuess());
+            }
+            System.out.println("Spearman's correlation for " + alg + " is " +
+                    spearmans.correlation(actual.toArray(), predicted.toArray()));
+        }
     }
 
     private void analyzePairs(Map<String, Map<String, KnownSimGuess>> guessesByPair) {
@@ -134,31 +177,6 @@ public class AlgorithmicDifferenceProbe {
                 guessesByPair.get(g.getUniqueKey()).put(alg, g);
             }
         }
-
-        System.out.println("Found " + guessesByPair.size() + " concept-pairs that appear in at least one directory");
-
-        // Remove things that don't appear in all directories
-        int removed = 0;
-        Iterator<Map<String, KnownSimGuess>> valueIter = guessesByPair.values().iterator();
-        while (valueIter.hasNext()) {
-            if (valueIter.next().size() != guesses.size()) {
-                valueIter.remove();
-                removed++;
-            }
-        }
-
-        // Reset ranks
-        for (String alg : guesses.keySet()) {
-            Iterator<KnownSimGuess> iter = guesses.get(alg).iterator();
-            while (iter.hasNext()) {
-                if (!guessesByPair.containsKey(iter.next().getUniqueKey())) {
-                    iter.remove();
-                }
-            }
-            SimilarityEvaluationLog.setRanks(guesses.get(alg));
-        }
-
-        System.out.println("Removed " + removed + " concept pairs that don't appear in every directory. Retained " + guessesByPair.size() + ".");
         return guessesByPair;
     }
 
