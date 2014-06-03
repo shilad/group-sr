@@ -4,6 +4,7 @@ import gnu.trove.list.TDoubleList;
 import gnu.trove.list.array.TDoubleArrayList;
 import gnu.trove.map.TDoubleDoubleMap;
 import gnu.trove.map.hash.TDoubleDoubleHashMap;
+import org.apache.commons.math3.stat.inference.WilcoxonSignedRankTest;
 import org.apache.commons.math3.stat.ranking.NaturalRanking;
 import org.apache.commons.math3.stat.ranking.TiesStrategy;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
@@ -26,6 +27,7 @@ public class AlgorithmicDifferenceProbe {
     public void compare(List<File> dirs) throws IOException, ParseException {
         Map<String, List<KnownSimGuess>> guesses = getGuesses(dirs);
         Map<String, Map<String, KnownSimGuess>> guessesByPair = groupGuessesByPair(guesses);
+        findDifferences(guessesByPair);
         analyzePairs(guessesByPair);
     }
 
@@ -46,6 +48,56 @@ public class AlgorithmicDifferenceProbe {
         List<String> ordered = WpCollectionUtils.sortMapKeys(pairScores, true);
         for (int i = 0; i < Math.min(ordered.size(), NUM_RESULTS); i++) {
             showPair(i, guessesByPair.get(ordered.get(i)));
+        }
+    }
+
+    private void findDifferences(Map<String, Map<String, KnownSimGuess>> guessesByPair) {
+        Set<String> algs = new TreeSet<String>();
+        Map<String, Map<String, Double>> errorsByPair = new HashMap<String, Map<String, Double>>();
+        for (String pairKey : guessesByPair.keySet()) {
+            errorsByPair.put(pairKey, new HashMap<String, Double>());
+            for (String alg : guessesByPair.get(pairKey).keySet()) {
+                KnownSimGuess g = guessesByPair.get(pairKey).get(alg);
+                errorsByPair.get(pairKey).put(alg, Math.abs(g.getError()));
+                algs.add(alg);
+            }
+        }
+
+        WilcoxonSignedRankTest wilcoxon = new WilcoxonSignedRankTest();
+        for (String alg1 : algs) {
+            for (String alg2 : algs) {
+                if (alg1 == alg2) {
+                    continue;
+                }
+                System.out.println("\nComparing alg " + alg1 + " vs " + alg2);
+
+                int [] winners = new int[3];
+                TDoubleList alg1Errors = new TDoubleArrayList();
+                TDoubleList alg2Errors = new TDoubleArrayList();
+                for (Map<String, Double> errors : errorsByPair.values()) {
+                    double e1 = Math.abs(errors.get(alg1));
+                    double e2 = Math.abs(errors.get(alg2));
+                    if (e1 > e2 + .0000000001) {
+                        winners[1]++;      // alg 2 is better
+                    } else if (e2 > e1 + 0.00000001) {
+                        winners[0]++;      // alg 1 is better
+                    } else {
+                        winners[2]++;      // they are the same
+                    }
+                    alg1Errors.add(e1);
+                    alg2Errors.add(e2);
+                }
+
+                System.out.println(
+                        String.format(
+                                "\twinners: alg1 %.2f%%, alg2 %.2f%%, tie %.2f%%",
+                                100.0 * winners[0] / errorsByPair.size(),
+                                100.0 * winners[1] / errorsByPair.size(),
+                                100.0 * winners[2] / errorsByPair.size()
+                        ));
+                double p = wilcoxon.wilcoxonSignedRankTest(alg1Errors.toArray(), alg2Errors.toArray(), false);
+                System.out.println("\tWilcoxon signed rank p value: " + p);
+            }
         }
     }
 
