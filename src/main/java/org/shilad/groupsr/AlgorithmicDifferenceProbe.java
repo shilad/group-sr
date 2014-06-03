@@ -101,7 +101,7 @@ public class AlgorithmicDifferenceProbe {
             errorsByPair.put(pairKey, new HashMap<String, Double>());
             for (String alg : guessesByPair.get(pairKey).keySet()) {
                 KnownSimGuess g = guessesByPair.get(pairKey).get(alg);
-                errorsByPair.get(pairKey).put(alg, Math.abs(g.getError()));
+                errorsByPair.get(pairKey).put(alg, Math.abs(g.getRankError()));
                 algs.add(alg);
             }
         }
