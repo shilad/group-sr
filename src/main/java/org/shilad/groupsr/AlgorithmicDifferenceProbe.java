@@ -24,9 +24,9 @@ public class AlgorithmicDifferenceProbe {
 
     public void compare(List<File> dirs) throws IOException, ParseException {
         Map<String, List<KnownSimGuess>> guesses = getGuesses(dirs);
-        Map<String, Map<String, KnownSimGuess>> guessesByPair = groupGuessesByPair(guesses);
         pruneGuesses(guesses);
         showCorrelations(guesses);
+        Map<String, Map<String, KnownSimGuess>> guessesByPair = groupGuessesByPair(guesses);
         findDifferences(guessesByPair);
         analyzePairs(guessesByPair);
     }
