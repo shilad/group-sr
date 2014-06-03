@@ -57,7 +57,7 @@ public class AlgorithmicDifferenceProbe {
                 throw new IllegalStateException();
             }
         }
-        System.out.println("Pruned to " + counts.size() + " concept pairs that appear in every algorithm");
+        System.out.println("Pruned to " + n + " concept pairs that appear in every algorithm");
     }
 
     private void showCorrelations(Map<String, List<KnownSimGuess>> guesses) {
