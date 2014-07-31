@@ -12,9 +12,12 @@ import org.wikibrain.sr.dataset.Dataset;
 import org.wikibrain.sr.dataset.DatasetDao;
 import org.wikibrain.sr.evaluation.ConfigMonolingualSRFactory;
 import org.wikibrain.sr.evaluation.SimilarityEvaluator;
+import org.wikibrain.utils.ParallelForEach;
+import org.wikibrain.utils.Procedure;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author Shilad Sen
@@ -53,10 +56,13 @@ public class BasicEvaluation {
         this.language = env.getLanguages().getDefaultLanguage();
     }
 
-    public void testAll(String metricName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
-        for (String datasetName : DATASETS) {
-            testOne(metricName, datasetName);
-        }
+    public void testAll(int maxSimultaneous, final String metricName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
+        ParallelForEach.loop(Arrays.asList(DATASETS), maxSimultaneous, new Procedure<String>() {
+            @Override
+            public void call(String datasetName) throws Exception {
+                testOne(metricName, datasetName);
+            }
+        });
     }
 
     public void testOne(String metricName, String datasetName) throws ConfigurationException, DaoException, IOException, WikiBrainException {
@@ -78,6 +84,11 @@ public class BasicEvaluation {
                     .withLongOpt("metric")
                     .withDescription("set a local metric")
                     .create("m"));
+        options.addOption(
+                new DefaultOptionBuilder()
+                        .hasArg()
+                        .withDescription("max simultaneous datasets")
+                        .create("x"));
 
         EnvBuilder.addStandardOptions(options);
 
@@ -93,9 +104,10 @@ public class BasicEvaluation {
         }
 
         String metricName = cmd.getOptionValue("m", "ensemble");
+        int maxSimultaneous = Integer.valueOf(cmd.getOptionValue("x", "1"));
 
         Env env = new EnvBuilder(cmd).build();
         BasicEvaluation basicEvaluation = new BasicEvaluation(env);
-        basicEvaluation.testAll(metricName);
+        basicEvaluation.testAll(maxSimultaneous, metricName);
     }
 }
