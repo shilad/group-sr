@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.shilad.wikibrain</groupId>
+            <groupId>org.wikibrainapi</groupId>
             <artifactId>wikibrain-sr</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>

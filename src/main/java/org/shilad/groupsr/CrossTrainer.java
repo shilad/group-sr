@@ -56,6 +56,5 @@ public class CrossTrainer {
         CrossTrainer xt = new CrossTrainer(env);
         xt.evaluate("all");
         xt.evaluate("specific");
-        env.close();
     }
 }
