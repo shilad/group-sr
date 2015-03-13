@@ -1,0 +1,50 @@
+world history	sustainability	3.2857	7
+Irish history	gardens	2.1111	9
+Latin America	writing	2.7143	7
+colonialism	U.S. History	4.4167	12
+identity	women	4.2222	9
+international relations	modern European history	4.8571	7
+South Asia	European history	3.5000	8
+writing	African American history	3.6250	8
+sustainability	intellectual history	2.6000	10
+environmental history	medieval history	3.5000	10
+South Asia	popular religion	3.7000	10
+modernism	medieval history	2.5714	7
+cultural history	modernism	4.1429	7
+civil rights movement	European history	2.7500	8
+feminism	gender	4.8889	9
+history	popular religion	3.6364	11
+slavery	sustainability	2.2222	9
+18th century	French history	4.8571	7
+American studies	women	4.2000	10
+modernism	church history	3.0000	8
+writing	popular religion	3.0769	13
+cultural history	race	4.6154	13
+African history	civil rights movement	3.8000	10
+sustainability	writing	2.5000	10
+history	medieval history	5.0000	6
+American studies	writing	3.8000	10
+race	intellectual history	3.9167	12
+sustainability	gardens	3.8750	8
+South Asia	race	3.1250	8
+British history	race	3.3333	6
+world history	urban history	4.4286	7
+collective memory	women	3.9167	12
+writing	historical memory	4.1429	7
+gardens	writing	2.2857	7
+European history	Irish history	4.8571	7
+gardens	South Asia	2.7143	7
+18th century	cultural history	4.1000	10
+modern European history	women	4.6250	8
+gardens	identity	2.7500	8
+slavery	environmental history	3.3333	9
+environmental history	African American history	3.8182	11
+writing	women	3.6667	9
+cultural history	Irish history	3.8750	8
+sexuality	African history	3.8000	5
+identity	sustainability	2.5833	12
+sexuality	historical memory	3.5000	6
+women	world history	4.0000	9
+collective memory	sexuality	2.7000	10
+identity	slavery	4.1667	6
+sustainability	digital humanities	2.5714	7

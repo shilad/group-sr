@@ -1,0 +1,50 @@
+aging	cognitive development	4.2222	9
+memory	aging	4.6250	8
+cognition	gender	2.6250	8
+psychology	history of psychology	4.3333	6
+gender	personality	3.2500	8
+cognitive psychology	neuroscience	4.3333	6
+abnormal psychology	child development	3.8000	5
+cognition	acculturation	3.8333	6
+psychology	community psychology	4.1667	6
+infancy	consciousness	3.5000	6
+research methods	cognitive neuroscience	4.0000	6
+gerontology	personality	2.7778	9
+clinical psychology	consciousness	3.0000	5
+emotion	developmental psychology	4.0000	6
+cognitive psychology	psychophysiology	3.1667	6
+positive psychology	cognition	3.4286	7
+music	community psychology	1.7500	8
+social change	community psychology	4.2857	7
+positive psychology	learning	2.7000	10
+psychology	cognitive development	4.2857	7
+health psychology	child development	3.2500	8
+cognitive neuroscience	child development	4.2857	7
+emotion	linguistics	2.5714	7
+bilingualism	animal behavior	1.6000	5
+memory	psychophysiology	3.8333	6
+health psychology	emotion regulation	3.8750	8
+experimental psychology	gerontology	3.6667	6
+consciousness	personality	3.2857	7
+social psychology	cognitive psychology	4.0000	8
+research methods	linguistics	2.7143	7
+psychophysiology	abnormal psychology	4.0000	7
+psychophysiology	linguistics	2.8333	6
+child development	social psychology	4.0000	9
+psychophysiology	psychology	3.8750	8
+cognition	language	4.7143	7
+cognitive neuroscience	learning	4.6667	6
+consciousness	research methods	2.1429	7
+clinical psychology	history of psychology	4.0000	7
+cognitive psychology	music	4.0000	7
+bilingualism	stereotyping	3.0000	6
+aging	metacognition	3.8333	6
+developmental psychology	memory	3.8571	7
+consciousness	positive psychology	3.2857	7
+psychopathology	neuroscience	4.6250	8
+learning	experimental psychology	4.3333	9
+psychology	social change	3.8000	5
+psychophysiology	aging	3.6250	8
+social psychology	personality	4.2857	7
+cognitive psychology	learning	4.4286	7
+aging	cognitive neuroscience	4.2857	7
