@@ -3,8 +3,10 @@ PluraSR200
 
 This directory contains the pluraSR200 dataset. 
 If you use this dataset, please cite: 
-Sen et al., "Turkers, Scholars, “Arafat” and “Peace”: Cultural Communities and Algorithmic Gold Standards", *CSCW 2015*. [[pdf] | http://www-users.cs.umn.edu/~bhecht/publications/goldstandards_CSCW2015.pdf]. 
+Sen et al., "Turkers, Scholars, “Arafat” and “Peace”: Cultural Communities and Algorithmic Gold Standards", *CSCW 2015*. [ [pdf](http://www-users.cs.umn.edu/~bhecht/publications/goldstandards_CSCW2015.pdf) ]. 
 The paper also details the survey methodology used for the dataset.
+
+## General concept pairs
 
 The "general" datasets contain general concept-pairs from WordSim 353 (50 questions). 
 Responses from virtual workers on Amazon's Mechanical Turk ("turkers") and scholars are separated into different files.
@@ -17,6 +19,8 @@ The information below lists the filenames, along with statistics describing the 
 	general-turker.txt n=50 (sum=461 min=6, mean=9.22, median=9.00, max=13)
 	general-scholar.txt n=50 (sum=887 min=12, mean=17.74, median=18.00, max=27)
 ```
+
+## Domain-specific concept pairs
 
 The "specific" dataset contains responses for concept-pairs from the fields of history, psychology, and biology. 
 There are 50 pairs in each field, for a total of 150 pairs. The files below contain responses (in the same format 
